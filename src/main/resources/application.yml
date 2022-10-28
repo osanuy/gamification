@@ -1,0 +1,40 @@
+server:
+  port: 8081
+
+spring:
+  application:
+    name: gamification
+  h2:
+    console:
+      enabled: true
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        show_sql: true
+  datasource:
+    url: jdbc:h2:file:~/gamification;DB_CLOSE_ON_EXIT=FALSE;
+
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+multiplication:
+  exchange: multiplication.exchange
+  solved:
+    key: multiplication.solved
+  queue: multiplication.gamification.queue
+  anything:
+    routing-key: multiplication.*
+
+# REST client settings
+multiplicationHost: http://localhost:8000/api
+
+# Service Discovery configuration
+eureka:
+  client:
+    service-url:
+      default-zone: http://localhost:8761/eureka/
