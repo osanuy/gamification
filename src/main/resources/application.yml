@@ -31,7 +31,7 @@ multiplication:
     routing-key: multiplication.*
 
 # REST client settings
-multiplicationHost: http://localhost:8000/api
+gatewayhost: http://localhost:8000/
 
 # Service Discovery configuration
 eureka:
